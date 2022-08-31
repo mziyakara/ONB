@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,14 +7,14 @@ import {
   KeyboardAvoidingView,
   Dimensions,
   TouchableOpacity,
-} from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import AppButton from '../components/AppButton';
-import * as Progress from 'react-native-progress';
+} from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import AppButton from "../components/AppButton";
+import * as Progress from "react-native-progress";
 
-function Birth({navigation, onChangeStepId}) {
+const Birth = ({ navigation, onChangeStepId }) => {
   const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('date');
+  const [mode, setMode] = useState("date");
   const [show, setShow] = useState(true);
   const [isDateChanged, setIsDateChanged] = useState(false);
 
@@ -25,12 +25,12 @@ function Birth({navigation, onChangeStepId}) {
     setIsDateChanged(true);
   };
 
-  const showMode = currentMode => {
+  const showMode = (currentMode) => {
     setMode(currentMode);
   };
 
   const showDatepicker = () => {
-    showMode('date');
+    showMode("date");
   };
   const datePick = () => {
     return (
@@ -39,11 +39,12 @@ function Birth({navigation, onChangeStepId}) {
   };
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.containerKeyboard}>
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.containerKeyboard}
+    >
       <Progress.Bar
         progress={0.5}
-        width={Dimensions.get('window').width}
+        width={Dimensions.get("window").width}
         height={12}
         borderWidth={0}
         borderRadius={10}
@@ -53,14 +54,15 @@ function Birth({navigation, onChangeStepId}) {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('../assets/moonstars.png')}
+          source={require("../assets/moonstars.png")}
         />
         <Text style={styles.text}>Doğum tarihin nedir?</Text>
         <TouchableOpacity
           onPress={() => {
             datePick();
           }}
-          style={styles.dateContainer}>
+          style={styles.dateContainer}
+        >
           <DateTimePicker
             maximumDate={new Date()}
             value={date}
@@ -71,49 +73,49 @@ function Birth({navigation, onChangeStepId}) {
           <AppButton
             title="Devam Et"
             textcolor="black"
-            color={isDateChanged == false ? 'grey' : 'white'}
+            color={isDateChanged == false ? "grey" : "white"}
             disable={isDateChanged == false ? true : false}
             onPress={() => {
-              navigation.push('Photo');
+              navigation.push("Photo");
             }}
           />
         </View>
       </View>
     </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1A1624',
-    width: '90%',
-    alignSelf: 'center',
-    marginTop: '30%',
+    backgroundColor: "#1A1624",
+    width: "90%",
+    alignSelf: "center",
+    marginTop: "30%",
     borderRadius: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
-  image: {marginLeft: 30},
+  image: { marginLeft: 30 },
   text: {
     fontSize: 18,
-    color: 'white',
-    textAlign: 'center',
+    color: "white",
+    textAlign: "center",
     marginTop: 50,
-    fontFamily: 'Gilroy-Medium',
+    fontFamily: "Gilroy-Medium",
   },
   button: {
-    width: '90%',
+    width: "90%",
     height: 57,
     marginTop: 90,
     marginBottom: 10,
   },
-  containerKeyboard: {flex: 1, backgroundColor: 'white'},
+  containerKeyboard: { flex: 1, backgroundColor: "white" },
   dateContainer: {
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingRight: 100,
     marginTop: 100,
     height: 50,
-    width: '90%',
-    backgroundColor: 'white',
+    width: "90%",
+    backgroundColor: "white",
     borderRadius: 10,
   },
 });

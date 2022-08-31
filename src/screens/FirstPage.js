@@ -1,15 +1,15 @@
-import React from 'react';
-import {Text, StyleSheet, Image, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import AppButton from '../components/AppButton';
+import React from "react";
+import { Text, StyleSheet, Image, View } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+import AppButton from "../components/AppButton";
 
-function FirstPage({navigation}) {
+const FirstPage = ({ navigation }) => {
   return (
-    <LinearGradient colors={['#EAE0FF', 'white']} style={styles.container}>
+    <LinearGradient colors={["#EAE0FF", "white"]} style={styles.container}>
       <View style={styles.mainContainer}>
         <Image
-          style={(position = 'absolute')}
-          source={require('../assets/firstpage.png')}
+          style={(position = "absolute")}
+          source={require("../assets/firstpage.png")}
         />
         <View style={styles.textContainer}>
           <Text style={styles.text}>Ruh eşini keşfetmeye hazır mısın ?</Text>
@@ -25,7 +25,7 @@ function FirstPage({navigation}) {
           font="Gilroy-SemiBold"
           fontSize={22}
           onPress={() => {
-            navigation.push('Login');
+            navigation.push("Login");
           }}
         />
         <AppButton
@@ -34,7 +34,7 @@ function FirstPage({navigation}) {
           font="Gilroy-SemiBold"
           fontSize={22}
           onPress={() => {
-            navigation.push('Signin');
+            navigation.push("Signin");
           }}
         />
         <Text style={styles.centerBottomText}>
@@ -46,39 +46,39 @@ function FirstPage({navigation}) {
       </View>
     </LinearGradient>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
-  mainContainer: {flex: 1, justifyContent: 'center', alignItems: 'center'},
+  mainContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
   text: {
     fontSize: 36,
-    textAlign: 'center',
-    fontFamily: 'Gilroy-Bold',
+    textAlign: "center",
+    fontFamily: "Gilroy-Bold",
   },
-  bottomText: {color: '#6523F1'},
+  bottomText: { color: "#6523F1" },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    width: '95%',
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    width: "95%",
   },
   subText: {
     fontSize: 18,
-    textAlign: 'center',
-    fontFamily: 'Gilroy-Light',
+    textAlign: "center",
+    fontFamily: "Gilroy-Light",
   },
-  centerBottomText: {textAlign: 'center', fontFamily: 'Gilroy-Medium'},
+  centerBottomText: { textAlign: "center", fontFamily: "Gilroy-Medium" },
   buttonContainer: {
-    width: '100%',
+    width: "100%",
     paddingHorizontal: 20,
     bottom: 70,
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
   },
 });
 
