@@ -1,0 +1,6 @@
+module Pods_ONB_ONBTests {
+  umbrella header "Pods-ONB-ONBTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
